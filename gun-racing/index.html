@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Gun Racing</title>
+  <link rel="stylesheet" href="TemplateData/style.css">
+  <script src="TemplateData/gamepush-unity.js"></script>
+  <script>
+    var preloaderStarted = false;
+    const projectId = "14448";
+    const publicToken = "ax6AsIl43yV8afmZhHdCFXqI1ivVqqSy";
+    var _gp = null;
+    var _unityAwaiter = {};
+      _unityAwaiter.ready = new Promise((resolve, reject) => {
+      _unityAwaiter.done = resolve;
+      _unityAwaiter.abort = reject;
+    });
+    var _gpAwaiter = {};
+       _gpAwaiter.ready = new Promise((resolve) => {
+      _gpAwaiter.done = resolve;
+    });
+
+    window.unityInstance = null;
+    window.onGPError = () => _gpAwaiter.done();
+
+    window.onGPInit = async (gp) => {
+      _gp = gp;
+      window.GamePush = new GamePushUnity(gp);
+      gp.ads.showPreloader();
+      gp.ads.on('preloader:start', () => {
+        preloaderStarted = true;
+      });
+      gp.ads.on('preloader:close', (success) => {
+        preloaderStarted = false;
+      });
+      gp.player.ready.finally(_gpAwaiter.done);
+      if(gp.language == "ru") PromiseTimeOut(ruTextArray);
+      else  PromiseTimeOut(enTextArray);
+
+      await _unityAwaiter.ready;
+      loadingCover.style.display = "none";
+      awaitUnity = true;
+    };
+    let awaitUnity = false;
+    let loadText;
+    const ruTextArray = [
+      "Загружаем ресурсы",
+        "Строим уровни",
+        "Выставляем машины",
+        "Настраиваем оружие",
+        "Улучшаем магазин",
+        "Настраиваем лут в сундуках",
+    ];
+    const enTextArray = [
+      "Loading resources",
+      "Building levels",
+      "We display cars",
+      "Customizing the weapon",
+      "Improving the store",
+      "Adjusting loot in chests",
+    ];
+    let textID = 0;
+    window.onload = ()=> {
+      loadText = document.getElementById('loadingText');
+      loadText.innerText = " ";
+    }
+
+    async function PromiseTimeOut(array) {
+      while (!awaitUnity) {
+        loadText.innerText = array[textID];
+        await delay(2000 +  Math.floor(Math.random() * 2000));
+        textID++;
+        if(textID >= array.length)
+          textID = 0;
+      }
+    }
+    function delay(ms) {return new Promise((resolve) => setTimeout(resolve, ms));}
+  </script>
+  <script>
+    ((g, a, m, e) => { let o = () => { let p = document.createElement("script"); p.src = `${a[0]}?projectId=${m}&publicToken=${e}`, p.onerror = () => { a.shift(), a.length > 0 ? (o(), p.remove()) : "onGPError" in g && g.onGPError() }, document.head.appendChild(p) }; o() })(window, ["./sdk-bundle/gamepush.gd.js", "./sdk-bundle/gamepush.gd.js"], projectId, publicToken);
+  </script>
+<script>window.__GS_BOOT_CFG__={version: 2};</script>
+</head>
+
+
+<body class="dark">
+  <div id="unity-container" class="unity-desktop">
+    <canvas id="unity-canvas"></canvas>
+  </div>
+  <div id="loading-cover" style="display:none;">
+    <div id="unity-loading-bar">
+
+      <div id="loadingText"></div>
+      <div id="progressBar">
+        <div id="unity-progress-bar-full-cover"><div id="unity-progress-bar-full"></div></div>
+        <div id="unity-progress-bar-empty">
+      </div>
+
+      </div>
+      <div class="spinner"></div>
+    </div>
+  </div>
+
+  <script>
+    const buildUrl = "Build";
+    const loaderUrl = buildUrl + "/distBuild.loader.js";
+    var config = {
+      dataUrl: "",
+      frameworkUrl: buildUrl + "/distBuild.framework.js.unityweb",
+      codeUrl: buildUrl + "/distBuild.wasm.unityweb",
+      streamingAssetsUrl: "StreamingAssets",
+      companyName: "PMGames",
+      productName: "Gun Racing",
+      productVersion: "1.0.0.0",
+    };
+    //if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    //  config.devicePixelRatio = 1.8;
+    //}
+    const container = document.querySelector("#unity-container");
+    const canvas = document.querySelector("#unity-canvas");
+    const loadingCover = document.querySelector("#loading-cover");
+    const progressBarEmpty = document.querySelector("#unity-progress-bar-empty");
+    const progressBarFull = document.querySelector("#unity-progress-bar-full");
+    const loadingText = document.querySelector("#loadingText");
+    const spinner = document.querySelector('.spinner');
+
+    loadingCover.style.display = "";
+
+    const unityLoader = document.createElement("script");
+    unityLoader.src = loaderUrl;
+    unityLoader.onload = async () => {
+        await _gpAwaiter.ready;
+
+        if(_gp.isMobile){
+          config.devicePixelRatio = 1.8;
+          config.dataUrl = "Build/mb.data.unityweb";
+          console.log("MBBuild");
+        }
+        else   {
+            console.log("PCBuild");
+            config.dataUrl =  "Build/pc.data.unityweb";
+        }
+
+        createUnityInstance(canvas, config, (progress) => {
+        spinner.style.display = "none";
+        progressBarEmpty.style.display = "";
+        progressBarFull.style.width = `${100 * progress}%`;
+      }).then((unityInstance) => {
+          window.unityInstance = unityInstance;
+        _unityAwaiter.done(unityInstance);
+      }).catch((message) => {
+        _unityAwaiter.abort(message);
+        alert(message);
+      });
+    };
+    document.body.appendChild(unityLoader);
+
+    document.addEventListener("pointerdown", () => {
+      container.focus();
+      window.focus();
+      canvas.focus();
+    });
+
+  </script>
+</body>
+
+</html>

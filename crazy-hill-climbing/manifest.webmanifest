@@ -1,0 +1,15 @@
+{
+    "name": "Crazy Hill Climbing",
+    "short_name": "Crazy Hill Climbing",
+    "start_url": "index.html",
+    "display": "fullscreen",
+    "background_color": "#FFFFFF",
+    "theme_color": "#000",
+    "description": "",
+    "icons": [{
+      "src": "TemplateData/logo.png",
+      "sizes": "256x256",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }]
+  }
