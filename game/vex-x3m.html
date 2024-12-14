@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vex-X3m - Unblocked</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #8257e6, #e83e8c);
+            min-height: 100vh;
+        }
+
+        .header {
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: transparent;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-item {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+            margin-left: auto;
+        }
+
+        .search-box {
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            border: none;
+            margin-right: 5px;
+            width: 200px;
+        }
+
+        .search-btn {
+            padding: 0.5rem;
+            background: white;
+            color: #333;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .categories {
+            display: flex;
+            gap: 10px;
+            padding: 15px;
+            overflow-x: auto;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .category-btn {
+            padding: 8px 15px;
+            background: white;
+            border: none;
+            border-radius: 20px;
+            white-space: nowrap;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .more-btn {
+            background: #333;
+            color: white;
+        }
+
+        .game-container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .game-frame-container {
+            width: 100%;
+            max-width: 800px;
+            aspect-ratio: 16/9;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .game-thumbnail {
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .play-button {
+            position: absolute;
+            padding: 15px 60px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .play-button:hover {
+            transform: scale(1.05);
+            background: #45a049;
+        }
+
+        .ad-banner {
+            width: 100%;
+            max-width: 800px;
+            height: 100px;
+            background: white;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+        }
+
+        .similar-games {
+            width: 100%;
+            max-width: 1200px;
+            padding: 20px;
+        }
+
+        .similar-games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .game-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.2s;
+            aspect-ratio: 1;
+            text-decoration: none;
+            display: block;
+            color: inherit;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .game-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .new-games-header {
+            color: white;
+            margin: 20px 0;
+            padding-left: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .game-info {
+            width: 100%;
+            max-width: 800px;
+            color: white;
+            padding: 20px;
+        }
+
+        .game-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .game-description {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .game-meta {
+            display: flex;
+            gap: 20px;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .game-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .game-meta-item i {
+            font-size: 1.2rem;
+        }
+
+        .game-frame {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: none;
+        }
+
+        .game-frame.active {
+            display: block;
+        }
+
+        .game-thumbnail.hidden {
+            display: none;
+        }
+
+        .play-button.hidden {
+            display: none;
+        }
+
+        .loading-spinner {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .loading-spinner.active {
+            display: block;
+        }
+
+        .ad-container {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 20px;
+            padding: 0 20px;
+        }
+
+        .main-content {
+            flex: 1;
+        }
+
+        .sidebar-ads {
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .ad-banner-vertical {
+            width: 300px;
+            height: 600px;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* Responsive cho mobile */
+        @media (max-width: 1024px) {
+            .ad-container {
+                flex-direction: column;
+            }
+
+            .sidebar-ads {
+                width: 100%;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        .game-title {
+            padding: 10px;
+            text-align: center;
+            background: rgba(0,0,0,0.05);
+            font-size: 0.9rem;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="/index.html" class="logo">Vex X3m</a>
+        <div class="search-container">
+            <input type="text" class="search-box" placeholder="Search game">
+            <button class="search-btn">🔍</button>
+        </div>
+    </header>
+
+   
+    <div class="ad-container">
+        <div class="main-content">
+            <div class="game-frame-container">
+                <img src="path/to/merge-round-racers.jpg" alt="Merge Round Racers" class="game-thumbnail">
+                <div class="loading-spinner">Loading...</div>
+                <button class="play-button">Play</button>
+            </div>
+
+            <div class="ad-banner">
+                <!-- Ad space -->
+                728x90
+            </div>
+
+            <div class="game-info">
+                <h1 class="game-title">Merge Round Racers</h1>
+                <div class="game-description">
+                    <p>Merge Round Racers là một trò chơi đua xe hấp dẫn kết hợp với cơ chế ghép đôi độc đáo. Trong trò chơi này, bạn sẽ kết hợp các chiếc xe giống nhau để tạo ra những chiếc xe mạnh mẽ hơn. Thu thập xe, nâng cấp đội xe của bạn và trở thành tay đua số một!</p>
+                    <br>
+                    <p>Tính năng nổi bật:</p>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>Hệ thống ghép đôi xe độc đáo</li>
+                        <li>Đồ họa 3D sống động</li>
+                        <li>Nhiều loại xe để thu thập</li>
+                        <li>Các cấp độ thử thách hấp dẫn</li>
+                    </ul>
+                </div>
+                <div class="game-meta">
+                    <div class="game-meta-item">
+                        <i>👥</i>
+                        <span>1 Player</span>
+                    </div>
+                    <div class="game-meta-item">
+                        <i>🎮</i>
+                        <span>Racing</span>
+                    </div>
+                    <div class="game-meta-item">
+                        <i>📅</i>
+                        <span>Released: 2024</span>
+                    </div>
+                    <div class="game-meta-item">
+                        <i>👁️</i>
+                        <span>10,234 Plays</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="similar-games">
+                <h2 class="new-games-header">NEW GAMES</h2>
+                <div class="similar-games-grid">
+                    <a href="/game/vex-x3m.html" class="game-card">
+                        <img src="path/to/game1.jpg" alt="Game 1" class="game-image">
+                        <div class="game-title">Game Title 1</div>
+                    </a>
+                    
+                    <a href="game-detail.html" class="game-card">
+                        <img src="path/to/game2.jpg" alt="Game 2" class="game-image">
+                        <div class="game-title">Game Title 2</div>
+                    </a>
+                    
+                    <a href="game-detail.html" class="game-card">
+                        <img src="path/to/game3.jpg" alt="Game 3" class="game-image">
+                        <div class="game-title">Game Title 3</div>
+                    </a>
+                    
+                    <a href="game-detail.html" class="game-card">
+                        <img src="path/to/game4.jpg" alt="Game 4" class="game-image">
+                        <div class="game-title">Game Title 4</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar-ads">
+            <div class="ad-banner-vertical">
+                <div id="ad-slot-300x600">
+                    300x600
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const playButton = document.querySelector('.play-button');
+            const thumbnail = document.querySelector('.game-thumbnail');
+            const container = document.querySelector('.game-frame-container');
+            const loadingSpinner = document.querySelector('.loading-spinner');
+
+            playButton.addEventListener('click', function() {
+                
+                const gameFrame = document.createElement('iframe');
+                gameFrame.className = 'game-frame';
+                gameFrame.src = 'https://vexx3m.github.io/game/vex-x3m/';
+                gameFrame.allowFullscreen = true;
+
+                
+                thumbnail.classList.add('hidden');
+                playButton.classList.add('hidden');
+                loadingSpinner.classList.add('active');
+
+                
+                container.appendChild(gameFrame);
+
+                
+                gameFrame.addEventListener('load', function() {
+                    loadingSpinner.classList.remove('active');
+                    gameFrame.classList.add('active');
+                    gameFrame.focus();
+                });
+            });
+        });
+    </script>
+</body>
+</html> 
