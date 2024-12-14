@@ -1,0 +1,45 @@
+{
+    "c2array": true,
+    "size": [
+        7,
+        1,
+        1
+    ],
+    "data": [
+        [
+            [
+                ""
+            ]
+        ],
+        [
+            [
+                "Buy a car"
+            ]
+        ],
+        [
+            [
+                "Buy another car"
+            ]
+        ],
+        [
+            [
+                "Drag to merge"
+            ]
+        ],
+        [
+            [
+                "To earn money,\ndrag to the track"
+            ]
+        ],
+        [
+            [
+                "Click to bring it back"
+            ]
+        ],
+        [
+            [
+                "Click Click Click"
+            ]
+        ]
+    ]
+}
