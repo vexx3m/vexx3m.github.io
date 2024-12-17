@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en-US">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vex-X3m</title>
+    <title>vex-x3m-Unblocked</title>
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="......">
     <style>
         * {
             margin: 0;
@@ -18,7 +20,7 @@
         }
 
         .header {
-            padding: 1rem 2rem;
+            padding: 1.5rem 2rem;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -27,13 +29,15 @@
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-size: 2.5rem;
             font-weight: bold;
             color: white;
             text-decoration: none;
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            padding: 10px 20px;
         }
 
         .nav-menu {
@@ -176,6 +180,10 @@
                 height: auto;
                 min-height: 90px;
             }
+            .logo {
+                font-size: 2rem;
+                padding: 5px 10px;
+            }
         }
 
         .ad-container {
@@ -184,6 +192,7 @@
             margin: 0 auto;
             gap: 20px;
             padding: 0 20px;
+            position: relative;
         }
 
         .main-content {
@@ -192,40 +201,10 @@
 
         .sidebar-ads {
             width: 300px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .game-info {
-            width: 100%;
-            max-width: 840px;
-            color: white;
-            padding: 20px;
-        }
-
-        .game-title {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            text-align: center;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        .game-description {
-            background: rgba(0, 0, 0, 0.2);
-            padding: 20px;
-            border-radius: 10px;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        .game-meta {
-            display: flex;
-            gap: 20px;
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.8);
-            justify-content: center;
-            flex-wrap: wrap;
+            position: sticky;
+            top: 20px;
+            height: fit-content;
+            align-self: flex-start;
         }
 
         .ad-banner-vertical {
@@ -248,9 +227,12 @@
 
             .sidebar-ads {
                 width: 100%;
-                flex-direction: row;
-                flex-wrap: wrap;
-                justify-content: center;
+                position: static;
+                margin-top: 20px;
+            }
+
+            .ad-banner-vertical {
+                margin: 0 auto;
             }
         }
 
@@ -313,11 +295,119 @@
         .game-section {
             margin-bottom: 40px;
         }
+
+        .layout-container {
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            max-width: 1800px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        .main-content {
+            flex: 1;
+            max-width: 800px;
+            margin: 0 10px;
+            padding-bottom: 40px;
+        }
+
+        .sidebar-left, .sidebar-right {
+            width: 300px;
+            height: 100%;
+            align-self: stretch;
+        }
+
+        .ad-banner-vertical {
+            width: 300px;
+            height: 600px;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1600px) {
+            .sidebar-left {
+                display: none;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .sidebar-right {
+                display: none;
+            }
+            .main-content {
+                margin: 0;
+            }
+        }
+
+        /* Thêm styles mới cho phần cuối trang */
+        .bottom-section {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.2); 
+            padding: 40px 0;
+            margin-top: 40px;
+            color: white;
+        }
+
+        .bottom-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .bottom-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .bottom-content h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .bottom-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        .game-info {
+            width: 100%;
+            max-width: 800px;
+            color: white;
+            padding: 20px;
+        }
+
+        .game-description {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .game-meta {
+            display: flex;
+            gap: 20px;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
     </style>
 </head>
 <body>
     <header class="header">
-        <a href="#" class="logo">Vex X3m</a>
+        <a href="#" class="logo">Vex X3m Unblocked Game</a>
 
         <div class="search-container">
             <input type="text" class="search-box" placeholder="Search game">
@@ -325,16 +415,7 @@
         </div>
     </header>
 
-    <!-- <div class="banner">
-        <a href="#" class="banner-item">Car Games</a>
-        <a href="#" class="banner-item">Skill Games</a>
-        <a href="#" class="banner-item">Running Games</a>
-        <a href="#" class="banner-item">Multiplayer Games</a>
-        <a href="#" class="banner-item">Racing Games</a>
-        <a href="#" class="banner-item">Stickman Games</a>
-        <a href="#" class="banner-item">Puzzle Games</a>
-        <a href="#" class="banner-item active">More ●</a>
-    </div> -->
+   
 
     <div class="ad-banner">
         <div id="ad-slot-728x90">
@@ -342,102 +423,68 @@
         </div>
     </div>
 
-    <div class="ad-container">
+    <div class="layout-container">
+        <div class="sidebar-left">
+            <div class="ad-banner-vertical">
+                <div id="ad-slot-300x600-left">
+                    300x600 Left
+                </div>
+            </div>
+        </div>
+
         <div class="main-content">
             <div class="game-section">
                 <h2 class="hot-games-header">HOT GAMES</h2>
                 <div class="game-grid">
                     <a href="/game/vex-x3m.html" class="game-card featured-game">
-                        <img src="path/to/minecraft.jpg" alt="Minecraft" class="game-image">
+                        <img src="/img/vex-x3m.jpg" alt="vex-x3m" class="game-image">
                         <div class="game-title">Vex X3m</div>
                     </a>
                     
-                    <a href="game-detail.html" class="game-card">
-                        <img src="path/to/among-us.jpg" alt="Among Us" class="game-image">
-                        <div class="game-title">Among Us</div>
+                    <a href="/game/cars-merge.html" class="game-card">
+                        <img src="/img/cars-merge.jpg" alt="cars-merge" class="game-image">
+                        <div class="game-title">Cars Merge</div>
                     </a>
                     
-                    <a href="https://vexx3m.github.io/" class="game-card">
-                        <img src="path/to/roblox.jpg" alt="Roblox" class="game-image">
-                        <div class="game-title">Roblox</div>
+                    <a href="/game/crazy-hill-climbing.html" class="game-card">
+                        <img src="/img/crazy-hill-climbing.jpg" alt="crazy-hill-climbing" class="game-image">
+                        <div class="game-title">Crazy Hill Climbing</div>
+                    </a>
+                    <a href="/game/real-racing-3d.html" class="game-card featured-game">
+                        <img src="/img/real-racing-3d.jpg" alt="real-racing-3d" class="game-image">
+                        <div class="game-title">Real Racing 3d</div>
+                    </a>
+                    <a href="/game/drive-race-crash.html" class="game-card">
+                        <img src="/img/drive-race-crash.jpg" alt="drive-race-crash" class="game-image">
+                        <div class="game-title">Drive Race Crash</div>
+                    </a>
+                    <a href="/game/driver-master-simulator.html" class="game-card">
+                        <img src="/img/driver-master-simulator.jpg" alt="driver-master-simulator" class="game-image">
+                        <div class="game-title">Driver Master Simulator</div>
+                    </a>
+                    <a href="/game/gun-racing.html" class="game-card">
+                        <img src="/img/gun-racing.jpg" alt="gun-racing" class="game-image">
+                        <div class="game-title">Gun Racing</div>
+                    </a>
+                    <a href="/game/mad-truck.html" class="game-card">
+                        <img src="/img/mad-truck.jpg" alt="mad-truck" class="game-image">
+                        <div class="game-title">Mad Truck</div>
+                    </a>
+                    <a href="/game/mega-ramps-ultimate-car-races.html" class="game-card">
+                        <img src="/img/mega-ramps-ultimate-car-races.jpg" alt="mega-ramps-ultimate-car-races" class="game-image">
+                        <div class="game-title">Mega Ramps Ultimate Car Races</div>
+                    </a>
+                    <a href="/game/moto-road-rash-3d-2.html" class="game-card">
+                        <img src="/img/moto-road-rash-3d-2.jpg" alt="moto-road-rash-3d-2" class="game-image">
+                        <div class="game-title">Moto Road Rash 3d 2</div>
                     </a>
                     
-                    <a href="game-detail.html" class="game-card">
-                        <img src="path/to/fortnite.jpg" alt="Fortnite" class="game-image">
-                        <div class="game-title">Fortnite</div>
-                    </a>
-                    <a href="game-detail.html" class="game-card">
-                        <img src="path/to/fortnite.jpg" alt="Fortnite" class="game-image">
-                        <div class="game-title">Fortnite</div>
-                    </a>
-                    <a href="game-detail.html" class="game-card">
-                        <img src="path/to/fortnite.jpg" alt="Fortnite" class="game-image">
-                        <div class="game-title">Fortnite</div>
-                    </a>
-                    <a href="game-detail.html" class="game-card">
-                        <img src="path/to/fortnite.jpg" alt="Fortnite" class="game-image">
-                        <div class="game-title">Fortnite</div>
-                    </a>
-                    <a href="game-detail.html" class="game-card">
-                        <img src="path/to/fortnite.jpg" alt="Fortnite" class="game-image">
-                        <div class="game-title">Fortnite</div>
-                    </a>
-                    <a href="game-detail.html" class="game-card">
-                        <img src="path/to/fortnite.jpg" alt="Fortnite" class="game-image">
-                        <div class="game-title">Fortnite</div>
-                    </a>
                 </div>
             </div>
 
-            <div class="game-section">
-                <h2 class="new-games-header">NEW GAMES</h2>
-                <div class="game-grid">
-                    <a href="game-detail.html" class="game-card featured-game">
-                        <img src="path/to/acorn.jpg" alt="Acorn Game" class="game-image">
-                        <div class="game-title">Acorn Game</div>
-                    </a>
-                    
-                    <a href="game-detail.html" class="game-card">
-                        <img src="path/to/doge.jpg" alt="Doge Game" class="game-image">
-                        <div class="game-title">Doge Game</div>
-                    </a>
-                    
-                    <a href="game-detail.html" class="game-card">
-                        <img src="path/to/merge.jpg" alt="Merge Game" class="game-image">
-                        <div class="game-title">Merge Round Racers</div>
-                    </a>
-                    
-                    <a href="game-detail.html" class="game-card">
-                        <img src="path/to/bear.jpg" alt="Bear Game" class="game-image">
-                        <div class="game-title">Bear Game</div>
-                    </a>
-                    <a href="game-detail.html" class="game-card">
-                        <img src="path/to/bear.jpg" alt="Bear Game" class="game-image">
-                        <div class="game-title">Bear Game</div>
-                    </a>
-                    <a href="game-detail.html" class="game-card">
-                        <img src="path/to/bear.jpg" alt="Bear Game" class="game-image">
-                        <div class="game-title">Bear Game</div>
-                    </a>
-                    <a href="game-detail.html" class="game-card">
-                        <img src="path/to/bear.jpg" alt="Bear Game" class="game-image">
-                        <div class="game-title">Bear Game</div>
-                    </a>
-                    <a href="game-detail.html" class="game-card">
-                        <img src="path/to/bear.jpg" alt="Bear Game" class="game-image">
-                        <div class="game-title">Bear Game</div>
-                    </a>
-                    <a href="game-detail.html" class="game-card">
-                        <img src="path/to/bear.jpg" alt="Bear Game" class="game-image">
-                        <div class="game-title">Bear Game</div>
-                    </a>
-                </div>
-                
-            </div>
             <div class="game-info">
-                <h1 class="game-title">Merge Round Racers</h1>
                 <div class="game-description">
-                    <p>Merge Round Racers là một trò chơi đua xe hấp dẫn kết hợp với cơ chế ghép đôi độc đáo. Trong trò chơi này, bạn sẽ kết hợp các chiếc xe giống nhau để tạo ra những chiếc xe mạnh mẽ hơn. Thu thập xe, nâng cấp đội xe của bạn và trở thành tay đua số một!</p>
+                    <p>Merge Round Racers là một trò chơi đua xe h���p dẫn kết hợp với cơ chế ghép đôi đc đáo. Trong trò chơi này, bạn sẽ kết hợp các chiếc xe giống nhau để tạo ra những chiếc xe mạnh mẽ hơn. Thu thập xe, nâng cấp đội xe của bạn và trở thành tay đua số một!</p>
                     <br>
                     <p>Tính năng nổi bật:</p>
                     <ul style="margin-left: 20px; margin-top: 10px;">
@@ -447,33 +494,84 @@
                         <li>Các cấp độ thử thách hấp dẫn</li>
                     </ul>
                 </div>
-                <div class="game-meta">
-                    <div class="game-meta-item">
-                        <i>👥</i>
-                        <span>1 Player</span>
-                    </div>
-                    <div class="game-meta-item">
-                        <i>🎮</i>
-                        <span>Racing</span>
-                    </div>
-                    <div class="game-meta-item">
-                        <i>📅</i>
-                        <span>Released: 2024</span>
-                    </div>
-                    <div class="game-meta-item">
-                        <i>👁️</i>
-                        <span>10,234 Plays</span>
-                    </div>
+            </div>
+
+            <div class="game-section">
+                <h2 class="new-games-header">NEW GAMES</h2>
+                <div class="game-grid">
+                    <a href="/game/turbo-race-3d.html" class="game-card featured-game">
+                        <img src="/img/turbo-race-3d.jpg" alt="turbo-race-3d" class="game-image">
+                        <div class="game-title">Turbo Race 3d</div>
+                    </a>
+                    
+                    <a href="/game/motor-tour.html" class="game-card">
+                        <img src="/img/motor-tour.jpeg" alt="motor-tour" class="game-image">
+                        <div class="game-title">Motor Tour</div>
+                    </a>
+                    
+                    <a href="/game/parking-master-urban-challenges.html" class="game-card">
+                        <img src="/img/parking-master-urban-challenges.jpg" alt="parking-master-urban-challenges" class="game-image">
+                        <div class="game-title">Parking Master Urban Challenges</div>
+                    </a>
+                    
+                    <a href="/game/pursuit-rampage.html" class="game-card">
+                        <img src="/img/pursuit-rampage.jpg" alt="pursuit-rampage" class="game-image">
+                        <div class="game-title">pursuit-rampage</div>
+                    </a>
+                    <a href="/game/road-race-3d.html" class="game-card">
+                        <img src="/img/road-race-3d.jpg" alt="road-race-3d" class="game-image">
+                        <div class="game-title">Road Race 3d</div>
+                    </a>
+                    <a href="/game/sprunki-challenge.html" class="game-card">
+                        <img src="/img/sprunki-challenge.jpg" alt="sprunki-challenge" class="game-image">
+                        <div class="game-title">Sprunki Challenge</div>
+                    </a>
+                    <a href="/game/stunt-bike-rider-bros.html" class="game-card">
+                        <img src="/img/stunt-bike-rider-bros.jpg" alt="stunt-bike-rider-bros" class="game-image">
+                        <div class="game-title">Stunt Bike Rider Bros</div>
+                    </a>
+                    <a href="/game/wild-race-master-3d.html" class="game-card featured-game">
+                        <img src="/img/Wild Race Master 3d.jpg" alt="wild-race-master-3d" class="game-image">
+                        <div class="game-title">Wild Race Master 3d</div>
+                    </a>
+                    <a href="/game/syder-hyper-drive.html" class="game-card">
+                        <img src="/img/syder-hyper-drive.jpg" alt="syder-hyper-drive" class="game-image">
+                        <div class="game-title">Syder Hyper Drive</div>
+                    </a>
+                    <a href="/game/traffic-escape-puzzle.html" class="game-card">
+                        <img src="/img/traffic-escape-puzzle.jpg" alt="traffic-escape-puzzle" class="game-image">
+                        <div class="game-title">Traffic Escape Puzzle</div>
+                    </a>
+                    <a href="/game/christmas-find-the-differences.html" class="game-card">
+                        <img src="/img/christmas-find-the-differences.jpg" alt="christmas-find-the-differences" class="game-image">
+                        <div class="game-title">Christmas Find The Differences</div>
+                    </a>
+                    <a href="/game/real-cars-epic-stunts.html" class="game-card featured-game">
+                        <img src="/img/real-cars-epic-stunts.jpg" alt="real-cars-epic-stunts" class="game-image">
+                        <div class="game-title">Real Cars Epic Stunts</div>
+                    </a>
+                    <a href="/game/nitro-speed-car-racing.html" class="game-card">
+                        <img src="/img/nitro-speed-car-racing.jpg" alt="nitro-speed-car-racing" class="game-image">
+                        <div class="game-title">Nitro Speed Car Racing</div>
+                    </a>
+                </div>
+            </div>
+        </div>       
+
+        <div class="sidebar-right">
+            <div class="ad-banner-vertical">
+                <div id="ad-slot-300x600-right">
+                    300x600 Right
                 </div>
             </div>
         </div>
+    </div>
 
-        <div class="sidebar-ads">
-            <div class="ad-banner-vertical">
-                <div id="ad-slot-300x600">
-                    300x600
-                </div>
-            </div>
+    <div class="bottom-section">
+        <div class="bottom-content">
+            <h2>Welcome to Vex X3m</h2>           
+            <h3>Your One-Stop Destination for Unblocked Games</h3>
+            <h3>Enjoy a Wide Range of Games for All Ages</h3>
         </div>
     </div>
 </body>

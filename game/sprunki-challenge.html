@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <title>Sprunki Challenge-Unblocked</title>
+    <meta name="description" content="......">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #8257e6, #e83e8c);
+            min-height: 100vh;
+        }
+
+        .header {
+            padding: 1.5rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: transparent;
+            position: relative;
+            max-width: 1800px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            position: static;
+            transform: none;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            padding: 10px 20px;
+            margin-right: auto;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-item {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+            margin-left: 0;
+        }
+
+        .search-box {
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            border: none;
+            margin-right: 5px;
+            width: 200px;
+        }
+
+        .search-btn {
+            padding: 0.5rem;
+            background: white;
+            color: #333;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .categories {
+            display: flex;
+            gap: 10px;
+            padding: 15px;
+            overflow-x: auto;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .category-btn {
+            padding: 8px 15px;
+            background: white;
+            border: none;
+            border-radius: 20px;
+            white-space: nowrap;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .more-btn {
+            background: #333;
+            color: white;
+        }
+
+        .game-container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .game-frame-container {
+            width: 100%;
+            max-width: 800px;
+            aspect-ratio: 16/9;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .game-thumbnail {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 15px 60px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: transform 0.2s, background 0.2s;
+            z-index: 2;
+        }
+
+        .play-button:hover {
+            transform: translate(-50%, -50%) scale(1.05);
+            background: #45a049;
+        }
+
+        .ad-banner {
+            width: 100%;
+            max-width: 800px;
+            height: 100px;
+            background: white;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+        }
+
+        .similar-games {
+            width: 100%;
+            max-width: 1200px;
+            padding: 20px;
+        }
+
+        .similar-games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .game-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.2s;
+            aspect-ratio: 1;
+            text-decoration: none;
+            display: block;
+            color: inherit;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .game-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .new-games-header {
+            color: white;
+            margin: 20px 0;
+            padding-left: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .game-info {
+            width: 100%;
+            max-width: 800px;
+            color: white;
+            padding: 20px;
+        }
+
+        .game-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .game-description {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .game-meta {
+            display: flex;
+            gap: 20px;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        .game-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .game-meta-item i {
+            font-size: 1.2rem;
+        }
+
+        .game-frame {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            z-index: 1;
+        }
+
+        .game-frame.active {
+            display: block;
+        }
+
+        .game-thumbnail.hidden {
+            display: none;
+        }
+
+        .play-button.hidden {
+            display: none;
+        }
+
+        .loading-spinner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 3;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .loading-spinner.active {
+            display: block;
+        }
+
+        .ad-container {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 20px;
+            padding: 0 20px;
+        }
+
+        .main-content {
+            flex: 1;
+            max-width: 800px;
+            margin-right: 10px;
+        }
+
+        .sidebar-ads {
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .ad-banner-vertical {
+            width: 300px;
+            height: 600px;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* Responsive cho mobile */
+        @media (max-width: 1024px) {
+            .ad-container {
+                flex-direction: column;
+            }
+
+            .sidebar-ads {
+                width: 100%;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        .game-title {
+            padding: 10px;
+            text-align: center;
+            background: rgba(0,0,0,0.05);
+            font-size: 0.9rem;
+            color: #333;
+        }
+
+        .game-controls {
+            width: 100%;
+            max-width: 800px;
+            display: flex;
+            justify-content: flex-end;
+            padding: 10px 0;
+        }
+
+        .fullscreen-btn {
+            padding: 8px 16px;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 14px;
+            transition: background 0.2s;
+        }
+
+        .fullscreen-btn:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .fullscreen-btn i {
+            font-size: 18px;
+        }
+
+        /* Thêm styles mới */
+        .layout-container {
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            max-width: 1800px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .sidebar-left {
+            width: 300px;
+            position: sticky;
+            top: 20px;
+            height: fit-content;
+            align-self: flex-start;
+            margin-right: 20px;
+        }
+
+        .sidebar-right {
+            width: 300px;
+            position: sticky;
+            top: 20px;
+            height: fit-content;
+            align-self: flex-start;
+            margin-left: 10px;
+        }
+
+        .ad-banner-vertical {
+            width: 300px;
+            height: 600px;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 1600px) {
+            .sidebar-left {
+                display: none; /* Ẩn sidebar trái khi màn hình nhỏ */
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .main-content {
+                margin-right: 0;
+            }
+            
+            .sidebar-right {
+                margin-left: 0;
+            }
+        }
+
+        /* Responsive cho mobile */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2.5rem;
+            }
+            
+            .header {
+                padding: 1rem;
+            }
+        }
+
+        /* Thêm styles mới cho phần cuối trang */
+        .game-bottom {
+            width: 100%;
+            background: white;
+            padding: 40px 0;
+            margin-top: 40px;
+        }
+
+        .game-bottom h1 {
+            max-width: 800px;
+            margin: 0 auto;
+            color: #333;
+            font-size: 2.5rem;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        /* Di chuyển phần game-title từ game-info xuống cuối */
+        .game-info {
+            width: 100%;
+            max-width: 800px;
+            color: white;
+            padding: 20px;
+        }
+
+        .game-info .game-title {
+            display: none; /* Ẩn tiêu đề cũ */
+        }
+
+        /* Thêm styles mới cho phần cuối trang */
+        .bottom-section {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.2); 
+            padding: 40px 0;
+            margin-top: 40px;
+            color: white;
+        }
+
+        .bottom-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .bottom-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .bottom-content h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .bottom-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="/index.html" class="logo">Vex X3m Unblocked Game</a>
+        <div class="search-container">
+            <input type="text" class="search-box" placeholder="Search game">
+            <button class="search-btn">🔍</button>
+        </div>
+    </header>
+
+    <div class="layout-container">
+        <div class="sidebar-left">
+            <div class="ad-banner-vertical">
+                <div id="ad-slot-300x600-left">
+                    300x600 Left
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="game-frame-container">
+                <iframe 
+                    src="https://vexx3m.github.io/game/sprunki-challenge/" 
+                    frameborder="0"
+                    allowfullscreen
+                    scrolling="no"
+                    allow="autoplay; fullscreen"
+                    id="game-iframe"
+                ></iframe>
+            </div>
+            
+            <div class="game-controls">
+                <button class="fullscreen-btn" onclick="toggleFullscreen()">
+                    <i>⛶</i> Fullscreen
+                </button>
+            </div>
+
+            <div class="ad-banner">
+                <!-- Ad space -->
+                728x90
+            </div>
+
+            <div class="game-info">
+                <div class="game-description">
+                    <p>Merge Round Racers là một trò chơi đua xe h���p dẫn kết hợp với cơ chế ghép đôi đc đáo. Trong trò chơi này, bạn sẽ kết hợp các chiếc xe giống nhau để tạo ra những chiếc xe mạnh mẽ hơn. Thu thập xe, nâng cấp đội xe của bạn và trở thành tay đua số một!</p>
+                    <br>
+                    <p>Tính năng nổi bật:</p>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>Hệ thống ghép đôi xe độc đáo</li>
+                        <li>Đồ họa 3D sống động</li>
+                        <li>Nhiều loại xe để thu thập</li>
+                        <li>Các cấp độ thử thách hấp dẫn</li>
+                    </ul>
+                </div>
+                <div class="game-meta">
+                    <div class="game-meta-item">
+                        <i>👥</i>
+                        <span>1 Player</span>
+                    </div>
+                    <div class="game-meta-item">
+                        <i>🎮</i>
+                        <span>Racing</span>
+                    </div>
+                    <div class="game-meta-item">
+                        <i>��</i>
+                        <span>Released: 2024</span>
+                    </div>
+                    <div class="game-meta-item">
+                        <i>👁️</i>
+                        <span>10,234 Plays</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="similar-games">
+                <h2 class="new-games-header">NEW GAMES</h2>
+                <div class="similar-games-grid">                   
+                    <a href="/game/vex-x3m.html" class="game-card featured-game">
+                        <img src="/img/vex-x3m.jpg" alt="vex-x3m" class="game-image">
+                        <div class="game-title">Vex X3m</div>
+                    </a>
+                    <a href="/game/cars-merge.html" class="game-card">
+                        <img src="/img/cars-merge.jpg" alt="cars-merge" class="game-image">
+                        <div class="game-title">Cars Merge</div>
+                    </a>                   
+                    <a href="/game/crazy-hill-climbing.html" class="game-card">
+                        <img src="/img/crazy-hill-climbing.jpg" alt="crazy-hill-climbing" class="game-image">
+                        <div class="game-title">Crazy Hill Climbing</div>
+                    </a>
+                    <a href="/game/real-racing-3d.html" class="game-card featured-game">
+                        <img src="/img/real-racing-3d.jpg" alt="real-racing-3d" class="game-image">
+                        <div class="game-title">Real Racing 3d</div>
+                    </a>
+                    <a href="/game/drive-race-crash.html" class="game-card">
+                        <img src="/img/drive-race-crash.jpg" alt="drive-race-crash" class="game-image">
+                        <div class="game-title">Drive Race Crash</div>
+                    </a>
+                    <a href="/game/driver-master-simulator.html" class="game-card">
+                        <img src="/img/driver-master-simulator.jpg" alt="driver-master-simulator" class="game-image">
+                        <div class="game-title">Driver Master Simulator</div>
+                    </a>
+                    <a href="/game/gun-racing.html" class="game-card">
+                        <img src="/img/gun-racing.jpg" alt="gun-racing" class="game-image">
+                        <div class="game-title">Gun Racing</div>
+                    </a>
+                    <a href="/game/mad-truck.html" class="game-card">
+                        <img src="/img/mad-truck.jpg" alt="mad-truck" class="game-image">
+                        <div class="game-title">Mad Truck</div>
+                    </a>
+                    <a href="/game/mega-ramps-ultimate-car-races.html" class="game-card">
+                        <img src="/img/mega-ramps-ultimate-car-races.jpg" alt="mega-ramps-ultimate-car-races" class="game-image">
+                        <div class="game-title">Mega Ramps Ultimate Car Races</div>
+                    </a>
+                    <a href="/game/moto-road-rash-3d-2.html" class="game-card">
+                        <img src="/img/moto-road-rash-3d-2.jpg" alt="moto-road-rash-3d-2" class="game-image">
+                        <div class="game-title">Moto Road Rash 3d 2</div>
+                    </a>
+                    <a href="/game/turbo-race-3d.html" class="game-card featured-game">
+                        <img src="/img/turbo-race-3d.jpg" alt="turbo-race-3d" class="game-image">
+                        <div class="game-title">Turbo Race 3d</div>
+                    </a>
+                    
+                    <a href="/game/motor-tour.html" class="game-card">
+                        <img src="/img/motor-tour.jpeg" alt="motor-tour" class="game-image">
+                        <div class="game-title">Motor Tour</div>
+                    </a>
+                    
+                    <a href="/game/parking-master-urban-challenges.html" class="game-card">
+                        <img src="/img/parking-master-urban-challenges.jpg" alt="parking-master-urban-challenges" class="game-image">
+                        <div class="game-title">Parking Master Urban Challenges</div>
+                    </a>
+                    
+                    <a href="/game/pursuit-rampage.html" class="game-card">
+                        <img src="/img/pursuit-rampage.jpg" alt="pursuit-rampage" class="game-image">
+                        <div class="game-title">pursuit-rampage</div>
+                    </a>
+                    <a href="/game/road-race-3d.html" class="game-card">
+                        <img src="/img/road-race-3d.jpg" alt="road-race-3d" class="game-image">
+                        <div class="game-title">Road Race 3d</div>
+                    </a>
+                    <a href="/game/sprunki-challenge.html" class="game-card">
+                        <img src="/img/sprunki-challenge.jpg" alt="sprunki-challenge" class="game-image">
+                        <div class="game-title">Sprunki Challenge</div>
+                    </a>
+                    <a href="/game/stunt-bike-rider-bros.html" class="game-card">
+                        <img src="/img/stunt-bike-rider-bros.jpg" alt="stunt-bike-rider-bros" class="game-image">
+                        <div class="game-title">Stunt Bike Rider Bros</div>
+                    </a>
+                    <a href="/game/wild-race-master-3d.html" class="game-card featured-game">
+                        <img src="/img/Wild Race Master 3d.jpg" alt="wild-race-master-3d" class="game-image">
+                        <div class="game-title">Wild Race Master 3d</div>
+                    </a>
+                    <a href="/game/syder-hyper-drive.html" class="game-card">
+                        <img src="/img/syder-hyper-drive.jpg" alt="syder-hyper-drive" class="game-image">
+                        <div class="game-title">Syder Hyper Drive</div>
+                    </a>
+                    <a href="/game/traffic-escape-puzzle.html" class="game-card">
+                        <img src="/img/traffic-escape-puzzle.jpg" alt="traffic-escape-puzzle" class="game-image">
+                        <div class="game-title">Traffic Escape Puzzle</div>
+                    </a>
+                    <a href="/game/christmas-find-the-differences.html" class="game-card">
+                        <img src="/img/christmas-find-the-differences.jpg" alt="christmas-find-the-differences" class="game-image">
+                        <div class="game-title">Christmas Find The Differences</div>
+                    </a>
+                    <a href="/game/real-cars-epic-stunts.html" class="game-card featured-game">
+                        <img src="/img/real-cars-epic-stunts.jpg" alt="real-cars-epic-stunts" class="game-image">
+                        <div class="game-title">Real Cars Epic Stunts</div>
+                    </a>
+                    <a href="/game/nitro-speed-car-racing.html" class="game-card">
+                        <img src="/img/nitro-speed-car-racing.jpg" alt="nitro-speed-car-racing" class="game-image">
+                        <div class="game-title">Nitro Speed Car Racing</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar-right">
+            <div class="ad-banner-vertical">
+                <div id="ad-slot-300x600-right">
+                    300x600 Right
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bottom-section">
+        <div class="bottom-content">
+            <h2>Welcome to Vex X3m</h2>
+            <h3>Your One-Stop Destination for Unblocked Games</h3>
+            <h3>Enjoy a Wide Range of Games for All Ages</h3>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          
+        });
+
+        function toggleFullscreen() {
+            const iframe = document.getElementById('game-iframe');
+            
+            if (!document.fullscreenElement) {
+                // Vào chế độ fullscreen
+                if (iframe.requestFullscreen) {
+                    iframe.requestFullscreen();
+                } else if (iframe.webkitRequestFullscreen) { // Safari
+                    iframe.webkitRequestFullscreen();
+                } else if (iframe.msRequestFullscreen) { // IE11
+                    iframe.msRequestFullscreen();
+                }
+            } else {
+                // Thoát chế độ fullscreen
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) { // Safari
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) { // IE11
+                    document.msExitFullscreen();
+                }
+            }
+        }
+
+        // Lắng nghe sự kiện thay đổi trạng thái fullscreen
+        document.addEventListener('fullscreenchange', updateFullscreenButton);
+        document.addEventListener('webkitfullscreenchange', updateFullscreenButton);
+        document.addEventListener('mozfullscreenchange', updateFullscreenButton);
+        document.addEventListener('MSFullscreenChange', updateFullscreenButton);
+
+        function updateFullscreenButton() {
+            const btn = document.querySelector('.fullscreen-btn');
+            if (document.fullscreenElement) {
+                btn.innerHTML = '<i>⛶</i> Exit Fullscreen';
+            } else {
+                btn.innerHTML = '<i>⛶</i> Fullscreen';
+            }
+        }
+    </script>
+</body>
+</html> 
