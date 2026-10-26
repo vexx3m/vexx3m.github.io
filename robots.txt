@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://vexx3m.github.io/sitemap.xml
